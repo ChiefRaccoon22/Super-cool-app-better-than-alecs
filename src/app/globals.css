@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --mw-green: #2D5016;
+  --mw-orange: #C75B1A;
+  --mw-navy: #1B2A4A;
+  --mw-cream: #F5E6C8;
+  --mw-red: #C0392B;
+  --mw-gold: #D4A017;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #1B2A4A;
+  color: #F5E6C8;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1B2A4A; }
+::-webkit-scrollbar-thumb { background: #2D5016; border-radius: 3px; }
+
+/* Display font utility */
+.font-display {
+  font-family: 'Oswald', Impact, 'Arial Narrow', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* Metallic gold text */
+.text-gold-shine {
+  background: linear-gradient(135deg, #D4A017 0%, #FFD700 40%, #B8860B 70%, #D4A017 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background texture dots */
+.bg-texture {
+  background-image: radial-gradient(circle, rgba(45, 80, 22, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Button glow */
+.btn-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 160, 23, 0.4), 0 0 40px rgba(212, 160, 23, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(212, 160, 23, 0.9), 0 0 100px rgba(199, 91, 26, 0.5), 0 0 150px rgba(192, 57, 43, 0.2);
+  }
+}
+
+/* Shimmer */
+.shimmer-gold {
+  background: linear-gradient(90deg, #D4A017 0%, #FFD700 30%, #D4A017 60%, #FFD700 100%);
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Rarity colors */
+.rarity-common { color: #F5E6C8; }
+.rarity-uncommon { color: #4ade80; }
+.rarity-rare { color: #60a5fa; }
+.rarity-legendary { color: #D4A017; }
+
+/* Achievement tiers */
+.tier-bronze { color: #cd7f32; }
+.tier-silver { color: #C0C0C0; }
+.tier-gold { color: #D4A017; }
+.tier-legendary {
+  background: linear-gradient(135deg, #D4A017, #FFD700, #C0392B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
