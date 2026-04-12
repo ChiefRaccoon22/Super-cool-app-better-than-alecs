@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Zap, ArrowLeftRight, Flame, Fish, Crosshair, Trophy, TreePine } from "lucide-react";
-import { useGameState } from "@/lib/gameState";
+import { useGameState, ACHIEVEMENTS } from "@/lib/gameState";
 
 function StatCard({
   icon,
@@ -95,7 +95,7 @@ export default function Dashboard() {
         <StatCard icon={<Trophy size={20} />} value={state.totalPoints} label="MIDWEST POINTS" delay={0.15} />
         <StatCard icon={<Flame size={20} />} value={state.currentStreak} label="DAY STREAK" delay={0.2} />
         <StatCard icon={<TreePine size={20} />} value={state.unlockedItems.length} label="ITEMS OWNED" delay={0.25} />
-        <StatCard icon={<Trophy size={20} />} value={`${state.unlockedAchievements.length}/20`} label="ACHIEVEMENTS" delay={0.3} />
+        <StatCard icon={<Trophy size={20} />} value={`${state.unlockedAchievements.length}/${ACHIEVEMENTS.length}`} label="ACHIEVEMENTS" delay={0.3} />
       </div>
 
       {/* Quick actions */}

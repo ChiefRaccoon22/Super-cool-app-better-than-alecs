@@ -6,7 +6,7 @@ export interface MidwestEvent {
   emoji: string;
   points: number;
   rarity: Rarity;
-  category: "fishing" | "hunting" | "cooking" | "yard" | "sport" | "general";
+  category: "fishing" | "hunting" | "cooking" | "yard" | "sport" | "general" | "pets";
   triggerConfetti: boolean;
   shakeIntensity: "light" | "medium" | "heavy";
 }
@@ -313,6 +313,77 @@ export const EVENTS: MidwestEvent[] = [
     points: 225,
     rarity: "legendary",
     category: "cooking",
+    triggerConfetti: true,
+    shakeIntensity: "heavy",
+  },
+  // ── Pets ───────────────────────────────────────────────────────────────────
+  {
+    id: "porch-dog",
+    text: "Dog is snoozing at your feet on the porch. Good boy.",
+    emoji: "🐶",
+    points: 10,
+    rarity: "common",
+    category: "pets",
+    triggerConfetti: false,
+    shakeIntensity: "light",
+  },
+  {
+    id: "barn-cat-watching",
+    text: "Barn cat is eyeing something in the tall grass. She means business.",
+    emoji: "🐱",
+    points: 15,
+    rarity: "common",
+    category: "pets",
+    triggerConfetti: false,
+    shakeIntensity: "light",
+  },
+  {
+    id: "dog-flush",
+    text: "Dog flushed a pheasant right out of the ditch. Didn't even ask.",
+    emoji: "🐕",
+    points: 40,
+    rarity: "uncommon",
+    category: "pets",
+    triggerConfetti: false,
+    shakeIntensity: "medium",
+  },
+  {
+    id: "barn-cat-catch",
+    text: "Barn cat caught a mouse and dropped it on your boots. Classic.",
+    emoji: "🐱",
+    points: 35,
+    rarity: "uncommon",
+    category: "pets",
+    triggerConfetti: false,
+    shakeIntensity: "medium",
+  },
+  {
+    id: "lab-retrieve",
+    text: "Lab retrieved the first duck of the season perfectly. Textbook form.",
+    emoji: "🐕",
+    points: 65,
+    rarity: "rare",
+    category: "pets",
+    triggerConfetti: true,
+    shakeIntensity: "heavy",
+  },
+  {
+    id: "cat-rabbit",
+    text: "Barn cat dragged in a full-size rabbit. She's been training all winter.",
+    emoji: "🐱",
+    points: 60,
+    rarity: "rare",
+    category: "pets",
+    triggerConfetti: true,
+    shakeIntensity: "heavy",
+  },
+  {
+    id: "dog-hero",
+    text: "YOUR DOG JUST HERDED THE CATTLE BACK IN SOLO. FULL LEGEND. GOOD BOY.",
+    emoji: "🐕",
+    points: 175,
+    rarity: "legendary",
+    category: "pets",
     triggerConfetti: true,
     shakeIntensity: "heavy",
   },

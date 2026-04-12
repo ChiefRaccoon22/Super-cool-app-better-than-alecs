@@ -4,7 +4,8 @@ export type ItemCategory =
   | "fishing"
   | "cooking"
   | "vehicles"
-  | "entertainment";
+  | "entertainment"
+  | "pets";
 
 export interface SpreadItem {
   id: string;
@@ -179,6 +180,42 @@ export const ITEMS: SpreadItem[] = [
     category: "yard",
     unlockMessage: "LIVING THE DREAM, BROTHER!",
   },
+  {
+    id: "barn-cat",
+    name: "Barn Cat",
+    emoji: "🐱",
+    description: "Best mouser in three counties. She runs this place.",
+    price: 100,
+    category: "pets",
+    unlockMessage: "She runs this place now!",
+  },
+  {
+    id: "farm-dog",
+    name: "Farm Dog",
+    emoji: "🐕",
+    description: "Every spread needs a good dog.",
+    price: 125,
+    category: "pets",
+    unlockMessage: "Good boy!",
+  },
+  {
+    id: "dog-house",
+    name: "Deluxe Dog House",
+    emoji: "🏡",
+    description: "Climate controlled. He earned it.",
+    price: 250,
+    category: "pets",
+    unlockMessage: "Living large, good boy!",
+  },
+  {
+    id: "trained-retriever",
+    name: "Trained Retriever",
+    emoji: "🦮",
+    description: "AKC registered. Fetches everything, every time.",
+    price: 600,
+    category: "pets",
+    unlockMessage: "Best hunting partner you've ever had!",
+  },
 ];
 
 export const SPREAD_TIERS = [
@@ -187,7 +224,8 @@ export const SPREAD_TIERS = [
   { min: 6, max: 9, label: "COUNTRY BOY", emoji: "🌲" },
   { min: 10, max: 13, label: "BACKWOODS LEGEND", emoji: "🦌" },
   { min: 14, max: 17, label: "MIDWEST ROYALTY", emoji: "👑" },
-  { min: 18, max: 18, label: "THE FULL SPREAD", emoji: "🌟" },
+  { min: 18, max: 21, label: "FULL SPREAD", emoji: "🐾" },
+  { min: 22, max: 22, label: "THE FULL SPREAD", emoji: "🌟" },
 ];
 
 export function getSpreadTier(unlockedCount: number) {
