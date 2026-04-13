@@ -126,4 +126,22 @@ export const RATE_PAIRS: RatePair[] = [
     optionA: { label: "Bed Liner", emoji: "🛻" },
     optionB: { label: "Keep It Clean", emoji: "✨" },
   },
+  {
+    id: "cat-dog",
+    question: "Team cat or team dog?",
+    optionA: { label: "Cat Person", emoji: "🐱" },
+    optionB: { label: "Dog Person", emoji: "🐶" },
+  },
+  {
+    id: "dog-job",
+    question: "Best farm dog job?",
+    optionA: { label: "Hunting Dog", emoji: "🐕" },
+    optionB: { label: "Guard Dog", emoji: "🐕‍🦺" },
+  },
+  {
+    id: "barn-cat-name",
+    question: "What do you call the barn cat?",
+    optionA: { label: "Just 'Cat'", emoji: "🐱" },
+    optionB: { label: "Has a real name", emoji: "😂" },
+  },
 ];

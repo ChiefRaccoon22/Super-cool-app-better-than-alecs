@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 import { Lock, CheckCircle } from "lucide-react";
-import { ITEMS, getSpreadTier } from "@/lib/items";
+import { ITEMS, getSpreadTier, SPREAD_TIERS } from "@/lib/items";
 import { useGameState, spendPoints, unlockItem } from "@/lib/gameState";
 import { soundManager } from "@/lib/audio";
 import { fireUnlockConfetti } from "@/lib/confetti";
@@ -15,6 +15,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   cooking: "COOKING",
   vehicles: "VEHICLES",
   entertainment: "ENTERTAINMENT",
+  pets: "PETS",
 };
 
 export default function SpreadPage() {
@@ -24,9 +25,10 @@ export default function SpreadPage() {
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const tier = getSpreadTier(state.unlockedItems.length);
+  const tierThresholds = SPREAD_TIERS.map((t) => t.min).filter((v) => v > 0);
   const nextTier = (() => {
-    const idx = [0, 3, 6, 10, 14, 18].findIndex((v) => state.unlockedItems.length < v);
-    return idx === -1 ? null : [0, 3, 6, 10, 14, 18][idx];
+    const idx = tierThresholds.findIndex((v) => state.unlockedItems.length < v);
+    return idx === -1 ? null : tierThresholds[idx];
   })();
 
   const handleUnlock = (itemId: string, price: number, msg: string, cardEl: HTMLDivElement | null) => {
@@ -91,7 +93,7 @@ export default function SpreadPage() {
           <div className="text-right">
             <div className="font-display text-xs text-mw-cream/50">ITEMS</div>
             <div className="font-display text-lg font-bold text-mw-cream">
-              {state.unlockedItems.length} / 18
+              {state.unlockedItems.length} / {ITEMS.length}
             </div>
           </div>
         </div>

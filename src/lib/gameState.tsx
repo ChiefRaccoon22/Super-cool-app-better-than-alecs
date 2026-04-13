@@ -334,6 +334,30 @@ export const ACHIEVEMENTS: Achievement[] = [
     tier: "gold",
     secret: true,
   },
+  {
+    id: "pet-person",
+    name: "Pet Person",
+    description: "Unlock your first pet for the spread.",
+    emoji: "🐾",
+    tier: "bronze",
+    secret: false,
+  },
+  {
+    id: "full-farm",
+    name: "Full Farm",
+    description: "Own both the Farm Dog and Barn Cat.",
+    emoji: "🐾",
+    tier: "silver",
+    secret: false,
+  },
+  {
+    id: "animal-whisperer",
+    name: "Animal Whisperer",
+    description: "Trigger 5 pet events.",
+    emoji: "🐾",
+    tier: "silver",
+    secret: true,
+  },
 ];
 
 export function checkAchievements(
@@ -355,7 +379,7 @@ export function checkAchievements(
     "iron-man": state.currentStreak >= 30,
     "property-owner": state.unlockedItems.length >= 2,
     "serious-collector": state.unlockedItems.length >= 8,
-    "the-full-spread": state.unlockedItems.length >= 18,
+    "the-full-spread": state.unlockedItems.length >= 22,
     opinionated: state.totalVotesCast >= 1,
     "town-hall": state.totalVotesCast >= 50,
     "legendary-moment": state.legendaryEventCount >= 1,
@@ -366,6 +390,15 @@ export function checkAchievements(
       state.unlockedItems.includes("f150") &&
       state.unlockedItems.includes("bass-boat") &&
       state.unlockedItems.includes("atv"),
+    "pet-person":
+      state.unlockedItems.includes("barn-cat") ||
+      state.unlockedItems.includes("farm-dog") ||
+      state.unlockedItems.includes("dog-house") ||
+      state.unlockedItems.includes("trained-retriever"),
+    "full-farm":
+      state.unlockedItems.includes("barn-cat") &&
+      state.unlockedItems.includes("farm-dog"),
+    "animal-whisperer": (state.eventCategoryTotals["pets"] || 0) >= 5,
   };
 
   for (const achievement of ACHIEVEMENTS) {
